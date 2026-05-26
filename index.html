@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>甘训和 | 无人机冠军 · 福鼎一中</title>
+    <meta name="description" content="甘训和，福鼎市优秀初中生，2023宁德市航模无人机编程冠军，2024全国无人机大赛福建省二等奖，第八届全国无人机大赛一等奖。">
+    <meta name="keywords" content="甘训和,福鼎一中,无人机,航模,全国无人机大赛">
+    <meta name="author" content="甘训和">
+    <meta name="robots" content="index, follow">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --bg: #f0f4fa;
+            --card-bg: #ffffff;
+            --text: #1e2a3e;
+            --text-light: #4a627a;
+            --accent: #2a5298;
+            --accent-light: #eef2ff;
+            --border: #dce5f2;
+            --shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+        }
+        body.dark {
+            --bg: #0f1724;
+            --card-bg: #1e293b;
+            --text: #eef2ff;
+            --text-light: #94a3b8;
+            --accent: #5c9eff;
+            --accent-light: #1e2a3a;
+            --border: #334155;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .theme-btn {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            cursor: pointer;
+            font-size: 0.85rem;
+            color: var(--text);
+        }
+        .hero {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent), #7aaae0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .badge {
+            background: var(--accent-light);
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: var(--accent);
+        }
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .info-item {
+            background: var(--accent-light);
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.9rem;
+        }
+        .honor-section {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid var(--accent);
+            padding-left: 1rem;
+        }
+        .top-photo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .top-photo img {
+            max-width: 100%;
+            max-height: 220px;
+            border-radius: 1.5rem;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+        .photo-caption {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+        .honor-card {
+            background: var(--accent-light);
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .honor-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.3rem;
+        }
+        .honor-org {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+        .honor-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+        .award-img-top {
+            margin: 0.8rem 0;
+            text-align: center;
+        }
+        .award-img-top img {
+            max-width: 100%;
+            max-height: 130px;
+            border-radius: 0.8rem;
+            background: white;
+            padding: 4px;
+        }
+        .award-img-bottom {
+            margin: 0.8rem 0 0;
+            text-align: center;
+            border-top: 1px dashed var(--border);
+            padding-top: 0.8rem;
+        }
+        .award-img-bottom img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 0.8rem;
+            object-fit: cover;
+            box-shadow: var(--shadow);
+        }
+        .img-label {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            margin-top: 0.2rem;
+        }
+        .other-awards {
+            background: var(--card-bg);
+            border-radius: 2rem;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border);
+        }
+        .award-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        .award-tag {
+            background: var(--accent-light);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            border-left: 3px solid #fbbf24;
+        }
+        .quote {
+            background: var(--accent-light);
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        @media (max-width: 640px) {
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="theme-btn">
+        <button class="theme-toggle" id="darkModeToggle">🌙 深色模式</button>
+    </div>
+
+    <!-- 头部 -->
+    <div class="hero">
+        <h1>甘训和</h1>
+        <div class="badge">🏆 无人机编程冠军 · 科技少年</div>
+        <div class="info-grid">
+            <div class="info-item">🎓 小学：福鼎市城西小学 (2025届毕业)</div>
+            <div class="info-item">🏫 现读：福鼎一中 · 小路小区 (初中)</div>
+            <div class="info-item">📍 福建宁德 · 福鼎市</div>
+        </div>
+        <p style="margin-top: 0.8rem;">✨ 从航模少年到全国冠军，热爱编程与飞行。</p>
+    </div>
+
+    <!-- 权威荣誉区：最上方显示 3.jpg -->
+    <div class="honor-section">
+        <div class="section-title">🏅 权威荣誉 · 国赛闪耀</div>
+        
+        <!-- 3.jpg 在权威荣誉区最上面 -->
+        <div class="top-photo">
+            <img src="3.jpg" alt="甘训和荣誉照片">
+            <div class="photo-caption">✨ 甘训和同学荣誉掠影</div>
+        </div>
+
+        <!-- 1. 第八届全国无人机大赛 一等奖（只有网络证书图片） -->
+        <div class="honor-card">
+            <div class="honor-title">🥇 第八届全国无人机大赛 · 一等奖</div>
+            <div class="honor-org">中国航空学会主办 | 2024年</div>
+            <div class="honor-desc">全国青少年无人机大赛最高荣誉，编程与飞行综合实力展现。</div>
+            <div class="award-img-top">
+                <img src="http://img.int-ede.com/ede/20240902/c07b6dbd27fa443e99d42d362e8b3acd.png" alt="全国一等奖证书">
+            </div>
+        </div>
+
+        <!-- 2. 福建省赛二等奖：上面证书链接图片，下面 2.jpg -->
+        <div class="honor-card">
+            <div class="honor-title">✈️ 全国无人机大赛（福建省赛）· 二等奖</div>
+            <div class="honor-org">2024 全国青少年无人机大赛 · 福建赛区</div>
+            <div class="honor-desc">省级竞技脱颖而出，代表福鼎市晋级全国赛。</div>
+            <!-- 上面显示：证书链接图片 -->
+            <div class="award-img-top">
+                <img src="http://img.int-ede.com/ede/20240916/57062950841942c4b31745d41ba0d9c6.jpg" alt="福建省二等奖证书">
+                <div class="img-label">📜 获奖证书</div>
+            </div>
+            <!-- 下面显示：2.jpg -->
+            <div class="award-img-bottom">
+                <img src="2.jpg" alt="福建省赛相关留影">
+                <div class="img-label">🏅 赛场风采 / 荣誉留影</div>
+            </div>
+        </div>
+
+        <!-- 3. 宁德市冠军（1.png） -->
+        <div class="honor-card">
+            <div class="honor-title">🚁 宁德市第十一届航模教育竞赛 · 无人机编程冠军</div>
+            <div class="honor-org">宁德市教育局 / 宁德市体育局 | 2023年</div>
+            <div class="honor-desc">全市航模编程冠军，奠定科技特长基础。</div>
+            <div class="award-img-top">
+                <img src="1.png" alt="宁德市航模冠军证书">
+            </div>
+        </div>
+    </div>
+
+    <!-- 其他小学荣誉（三好、四好等，不包含2.jpg） -->
+    <div class="other-awards">
+        <div class="section-title">📜 全面发展 · 荣耀积累</div>
+        <div class="award-list">
+            <span class="award-tag">🏅 福鼎市城西小学 · 三好学生 (多次)</span>
+            <span class="award-tag">🌟 四好少年 · 品德兼优 (多学年)</span>
+            <span class="award-tag">🤖 校科技创新大赛 最佳编程奖</span>
+            <span class="award-tag">📚 福鼎市小学生信息素养 二等奖</span>
+            <span class="award-tag">🎯 宁德市航模教育竞赛 优秀运动员</span>
+            <span class="award-tag">✍️ 校级“数学之星” & “英语小能手”</span>
+        </div>
+        <p style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--text-light);">⭐ 小学期间多次荣获“三好学生”“四好少年”称号，乐于钻研、品学兼优。</p>
+    </div>
+
+    <!-- 寄语 -->
+    <div class="quote">
+        <div style="font-size: 1.8rem;">✨</div>
+        <p style="font-weight: 600;">“以梦为翼，智创未来”</p>
+        <p>甘训和热爱无人机编程与人工智能，未来立志投身航空航天事业。</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1rem;">
+            <span class="badge">💡 无人机编程</span>
+            <span class="badge">🧩 竞赛型选手</span>
+            <span class="badge">📖 全面发展</span>
+            <span class="badge">📧 联系邮箱: 3530388417@qq.com</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 甘训和 | 福鼎一中初中部 | 邮箱: 3530388417@qq.com</p>
+    </footer>
+</div>
+
+<script>
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        toggle.textContent = isDark ? '☀️ 浅色模式' : '🌙 深色模式';
+    });
+    if (localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark');
+        toggle.textContent = '☀️ 浅色模式';
+    }
+</script>
+</body>
+</html>
