@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>甘训和 | 无人机冠军 · 福鼎一中</title>
-    <meta name="description" content="甘训和，福鼎市优秀初中生，2023宁德市航模无人机编程冠军，2024全国无人机大赛福建省二等奖，第八届全国无人机大赛一等奖。">
-    <meta name="keywords" content="甘训和,福鼎一中,无人机,航模,全国无人机大赛">
+    <meta name="description" content="甘训和，福建省福鼎市优秀初中生，2023宁德市航模无人机编程冠军，2024全国无人机大赛福建省二等奖，第八届全国无人机大赛一等奖，多次获得三好学生、四好少年。">
+    <meta name="keywords" content="甘训和,福鼎一中,无人机,航模,全国无人机大赛,宁德航模,三好学生,四好少年">
     <meta name="author" content="甘训和">
     <meta name="robots" content="index, follow">
     <style>
@@ -118,6 +118,7 @@
             border-radius: 1.5rem;
             object-fit: cover;
             box-shadow: var(--shadow);
+            cursor: pointer;
         }
         .photo-caption {
             font-size: 0.7rem;
@@ -146,16 +147,30 @@
             color: var(--text-light);
             margin-bottom: 1rem;
         }
+        /* 奖状图片区域 - 省赛国赛放大 */
         .award-img-top {
             margin: 0.8rem 0;
             text-align: center;
         }
-        .award-img-top img {
+        /* 普通奖状（宁德冠军） */
+        .award-img-top img.normal-cert {
             max-width: 100%;
-            max-height: 130px;
+            max-height: 150px;
             border-radius: 0.8rem;
             background: white;
             padding: 4px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+        }
+        /* 省赛国赛奖状放大 */
+        .award-img-top img.large-cert {
+            max-width: 100%;
+            max-height: 280px;
+            border-radius: 0.8rem;
+            background: white;
+            padding: 6px;
+            box-shadow: var(--shadow);
+            cursor: pointer;
         }
         .award-img-bottom {
             margin: 0.8rem 0 0;
@@ -165,15 +180,30 @@
         }
         .award-img-bottom img {
             max-width: 100%;
-            max-height: 200px;
+            max-height: 220px;
             border-radius: 0.8rem;
             object-fit: cover;
             box-shadow: var(--shadow);
+            cursor: pointer;
         }
         .img-label {
             font-size: 0.7rem;
             color: var(--text-light);
             margin-top: 0.2rem;
+        }
+        .download-btn {
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.7rem;
+            cursor: pointer;
+            margin-top: 0.3rem;
+            transition: 0.2s;
+        }
+        .download-btn:hover {
+            opacity: 0.8;
         }
         .other-awards {
             background: var(--card-bg);
@@ -208,8 +238,41 @@
             padding-top: 1rem;
             border-top: 1px solid var(--border);
         }
+        /* 图片放大模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            cursor: pointer;
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 1rem;
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
         @media (max-width: 640px) {
             h1 { font-size: 2rem; }
+            .award-img-top img.large-cert { max-height: 200px; }
         }
     </style>
 </head>
@@ -219,7 +282,6 @@
         <button class="theme-toggle" id="darkModeToggle">🌙 深色模式</button>
     </div>
 
-    <!-- 头部 -->
     <div class="hero">
         <h1>甘训和</h1>
         <div class="badge">🏆 无人机编程冠军 · 科技少年</div>
@@ -231,55 +293,59 @@
         <p style="margin-top: 0.8rem;">✨ 从航模少年到全国冠军，热爱编程与飞行。</p>
     </div>
 
-    <!-- 权威荣誉区：最上方显示 3.jpg -->
+    <!-- 权威荣誉区 -->
     <div class="honor-section">
         <div class="section-title">🏅 权威荣誉 · 国赛闪耀</div>
         
-        <!-- 3.jpg 在权威荣誉区最上面 -->
         <div class="top-photo">
-            <img src="3.jpg" alt="甘训和荣誉照片">
+            <img src="3.jpg" alt="甘训和荣誉照片" class="zoomable-img">
             <div class="photo-caption">✨ 甘训和同学荣誉掠影</div>
+            <button class="download-btn" data-src="3.jpg">📥 下载图片</button>
         </div>
 
-        <!-- 1. 第八届全国无人机大赛 一等奖（只有网络证书图片） -->
+        <!-- 国赛一等奖 (5.png) 放大显示 -->
         <div class="honor-card">
             <div class="honor-title">🥇 第八届全国无人机大赛 · 一等奖</div>
             <div class="honor-org">中国航空学会主办 | 2024年</div>
             <div class="honor-desc">全国青少年无人机大赛最高荣誉，编程与飞行综合实力展现。</div>
             <div class="award-img-top">
-                <img src="http://img.int-ede.com/ede/20240902/c07b6dbd27fa443e99d42d362e8b3acd.png" alt="全国一等奖证书">
+                <img src="5.png" alt="全国一等奖证书" class="large-cert zoomable-img">
+                <div class="img-label">📜 获奖证书（点击放大）</div>
+                <button class="download-btn" data-src="5.png">📥 下载图片</button>
             </div>
         </div>
 
-        <!-- 2. 福建省赛二等奖：上面证书链接图片，下面 2.jpg -->
+        <!-- 福建省赛二等奖：上面 4.png（放大），下面 2.jpg -->
         <div class="honor-card">
             <div class="honor-title">✈️ 全国无人机大赛（福建省赛）· 二等奖</div>
             <div class="honor-org">2024 全国青少年无人机大赛 · 福建赛区</div>
             <div class="honor-desc">省级竞技脱颖而出，代表福鼎市晋级全国赛。</div>
-            <!-- 上面显示：证书链接图片 -->
             <div class="award-img-top">
-                <img src="http://img.int-ede.com/ede/20240916/57062950841942c4b31745d41ba0d9c6.jpg" alt="福建省二等奖证书">
-                <div class="img-label">📜 获奖证书</div>
+                <img src="4.png" alt="福建省二等奖证书" class="large-cert zoomable-img">
+                <div class="img-label">📜 获奖证书（点击放大）</div>
+                <button class="download-btn" data-src="4.png">📥 下载图片</button>
             </div>
-            <!-- 下面显示：2.jpg -->
             <div class="award-img-bottom">
-                <img src="2.jpg" alt="福建省赛相关留影">
+                <img src="2.jpg" alt="福建省赛相关留影" class="zoomable-img">
                 <div class="img-label">🏅 赛场风采 / 荣誉留影</div>
+                <button class="download-btn" data-src="2.jpg">📥 下载图片</button>
             </div>
         </div>
 
-        <!-- 3. 宁德市冠军（1.png） -->
+        <!-- 宁德市冠军 (1.png) -->
         <div class="honor-card">
             <div class="honor-title">🚁 宁德市第十一届航模教育竞赛 · 无人机编程冠军</div>
             <div class="honor-org">宁德市教育局 / 宁德市体育局 | 2023年</div>
             <div class="honor-desc">全市航模编程冠军，奠定科技特长基础。</div>
             <div class="award-img-top">
-                <img src="1.png" alt="宁德市航模冠军证书">
+                <img src="1.png" alt="宁德市航模冠军证书" class="normal-cert zoomable-img">
+                <div class="img-label">📜 获奖证书</div>
+                <button class="download-btn" data-src="1.png">📥 下载图片</button>
             </div>
         </div>
     </div>
 
-    <!-- 其他小学荣誉（三好、四好等，不包含2.jpg） -->
+    <!-- 其他小学荣誉 -->
     <div class="other-awards">
         <div class="section-title">📜 全面发展 · 荣耀积累</div>
         <div class="award-list">
@@ -293,7 +359,6 @@
         <p style="margin-top: 0.8rem; font-size: 0.85rem; color: var(--text-light);">⭐ 小学期间多次荣获“三好学生”“四好少年”称号，乐于钻研、品学兼优。</p>
     </div>
 
-    <!-- 寄语 -->
     <div class="quote">
         <div style="font-size: 1.8rem;">✨</div>
         <p style="font-weight: 600;">“以梦为翼，智创未来”</p>
@@ -308,10 +373,18 @@
 
     <footer>
         <p>© 2025 甘训和 | 福鼎一中初中部 | 邮箱: 3530388417@qq.com</p>
+        <p style="font-size:0.7rem; margin-top:6px;">本页面已向百度提交收录申请</p>
     </footer>
 </div>
 
+<!-- 图片放大模态框 -->
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
 <script>
+    // 深色模式
     const toggle = document.getElementById('darkModeToggle');
     toggle.addEventListener('click', () => {
         document.body.classList.toggle('dark');
@@ -323,6 +396,51 @@
         document.body.classList.add('dark');
         toggle.textContent = '☀️ 浅色模式';
     }
+
+    // 图片放大功能
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.querySelector('.close-modal');
+    
+    document.querySelectorAll('.zoomable-img').forEach(img => {
+        img.addEventListener('click', function() {
+            modal.style.display = 'block';
+            modalImg.src = this.src;
+        });
+    });
+    
+    closeModal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+    modal.addEventListener('click', function() {
+        modal.style.display = 'none';
+    });
+
+    // 图片下载功能
+    document.querySelectorAll('.download-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const src = this.getAttribute('data-src');
+            fetch(src)
+                .then(response => response.blob())
+                .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    // 从原文件名提取名称
+                    const filename = src.split('/').pop();
+                    a.download = filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                })
+                .catch(() => {
+                    // 降级方案：直接打开链接
+                    window.open(src, '_blank');
+                });
+        });
+    });
 </script>
 </body>
 </html>
